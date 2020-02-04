@@ -16,7 +16,6 @@ if(csvData) {
   };
 
   const intersections = new Intersections(csvData);
-  console.log(intersections);
 
   initList(intersections);
   let toronto = initMap(intersections);
@@ -25,7 +24,6 @@ if(csvData) {
   function initList(intersections){
     //Getting street names:
     const streets = intersections.streets();
-    console.log(streets);
 
     //Putting street names in menu
     var list = document.querySelector('#list');
@@ -53,10 +51,7 @@ if(csvData) {
         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       id: 'mapbox/streets-v11'
     }).addTo(toronto);
-  
-    //Adding markers for all intersections:
-    console.log(intersections.data);
-  
+   
     var myFeatureGroup = L.featureGroup().addTo(toronto).on("click", groupClick);
   
     intersections.data.forEach(section => {
@@ -82,23 +77,14 @@ if(csvData) {
 
     let intsection;
     if(isNaN(cameraName)){
-      console.log( 'In the showcamera function\n', cameraName);
-      console.log(intersections.searchByStreet(cameraName), cameraName);
-  
       //Find the intersection object pertaining to the selected menu item
       [intsection] = intersections.searchByStreet(cameraName);
     }
-    else{
-      //a camera id is passed to the function:
-      console.log( 'In the showcamera number function\n');
-      console.log(cameraName)
-      console.log(intersections.getById(cameraName), cameraName);
-  
+    else{  
       //Find the intersection object pertaining to the selected menu item
       intsection = intersections.getById(cameraName);
     }
     
-    console.log(toronto);
     toronto.flyTo(intsection.location.toArray(), 17);
     //Live Traffic image:
     var liveImg = document.createElement('img');
