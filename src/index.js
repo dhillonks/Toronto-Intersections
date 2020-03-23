@@ -19,7 +19,8 @@ if(csvData) {
 
   initList(intersections);
   let toronto = initMap(intersections);
-
+  window.dispatchEvent(new Event('resize'));
+  
   //Creates a list intersections in the webpage
   function initList(intersections){
     //Getting street names:
