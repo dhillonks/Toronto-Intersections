@@ -10,15 +10,15 @@
   "author": "David Humphrey",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.2.1",
-    "purgecss": "^2.0.5"
+    "chai": "^4.3.3",
+    "mocha": "^6.2.3",
+    "purgecss": "^2.3.0"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.6.0",
     "commonjs": "0.0.1",
     "parcel": "^1.12.3",
-    "server": "^1.0.22"
+    "server": "^1.0.32"
   },
   "repository": {
     "type": "git",
