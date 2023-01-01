@@ -17,7 +17,7 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "commonjs": "0.0.1",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "server": "^1.0.32"
   },
   "repository": {
