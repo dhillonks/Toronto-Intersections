@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha test",
     "test-live": "mocha --watch test",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "devDependencies": {
     "chai": "^5.0.3",
@@ -18,7 +19,6 @@
     "parcel": "^2.11.0",
     "server": "^1.0.38"
   },
-  "main": "index.js",
   "directories": {
     "test": "test"
   },
