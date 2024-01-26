@@ -9,11 +9,12 @@ const Location = require('./location');
 // Main:
 
 let csvData = loadCSVData();
-if(csvData) {
+let selectedMenuItem = null;
 
+if(csvData) {
   String.prototype.toProperCase = function () {
     return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-  };
+};
 
   const intersections = new Intersections(csvData);
 
@@ -30,13 +31,23 @@ if(csvData) {
     var list = document.querySelector('#list');
     streets.forEach(street=>{
     var div = document.createElement('div');
-    div.innerText = street;
+    div.innerText = street.toProperCase();
     div.classList.add("menu-item");
     div.title=street;
 
     list.appendChild(div);
       //Putting a click listener on all street names
-      div.addEventListener("click", (e) => {showCamera(e.target.title, toronto);});
+      div.addEventListener("click", (e) => {
+        showCamera(e.target.title, toronto);
+
+        if(selectedMenuItem) {
+          selectedMenuItem.classList.remove("menu-item-selected")
+        }
+
+          div.classList.add("menu-item-selected");
+          selectedMenuItem = div;
+        
+      });
     })
   }
   
@@ -63,6 +74,11 @@ if(csvData) {
     return toronto;
   }
   function groupClick(e) {
+    if(selectedMenuItem) {
+      selectedMenuItem.classList.remove("menu-item-selected")
+    }
+
+    selectedMenuItem = null;
     showCamera(Number(e.layer.id), toronto);
   }
 
